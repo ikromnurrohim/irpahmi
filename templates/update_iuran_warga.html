@@ -1,0 +1,152 @@
+  {% extends "base/base.html" %}
+
+  {% block contents %}
+      <!--main content start-->
+      <section id="main-content">
+        <section class="wrapper">
+          <div class="row">
+            <div class="col-lg-12">
+              <h3 class="page-header"><i class="fa fa-files-o"></i> Form Iuran Warga</h3>
+              <ol class="breadcrumb">
+                <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+                <li><i class="icon_document_alt"></i>Forms</li>
+                <li><i class="fa fa-files-o"></i>Form Iuran Warga</li>
+              </ol>
+            </div>
+          </div>
+          <!-- Form validations -->
+          <div class="row">
+            <div class="col-lg-12">
+              <section class="panel">
+                <header class="panel-heading">
+                  {% if user.is_authenticated %}
+                  <span>Form Iuran Warga</span><br>
+                  <span>No KK : {{object.no_kk}}</span><br>
+                  <span>Kepala Keluarga : {{object.kepala_keluarga}}</span>
+                </header>
+                <div class="panel-body">
+                  <div class="form">
+
+                    
+
+
+                    {% if form.errors %}
+                      {% for field in form %}
+                          {% for error in field.errors %}
+                              <div class="alert alert-danger">
+                                  <strong>{{ error|escape }}</strong>
+                              </div>
+                          {% endfor %}
+                      {% endfor %}
+                      {% for error in form.non_field_errors %}
+                          <div class="alert alert-danger">
+                              <strong>{{ error|escape }}</strong>
+                          </div>
+                      {% endfor %}
+                    {% endif %}
+
+
+
+                   
+
+                    <form class="form-validate form-horizontal" method="POST">
+                      {% csrf_token %}
+
+
+                      <div class="form-group ">
+                        <label for="id_januari" class="control-label col-lg-2">Januari</label>
+                        <div class="col-lg-4">
+                          <input type="text" name="januari" maxlength="15" class="form-control" id="id_januari" value="{{form.januari.value}}">
+                        </div>
+                      </div>
+                      <div class="form-group ">
+                        <label for="id_februari" class="control-label col-lg-2">Februari</label>
+                        <div class="col-lg-4">
+                          <input type="text" name="februari" maxlength="15" class="form-control" id="id_februari" value="{{form.februari.value}}" >
+                        </div>
+                      </div>
+                      <div class="form-group ">
+                        <label for="id_maret" class="control-label col-lg-2">Maret</label>
+                        <div class="col-lg-4">
+                          <input type="text" name="maret" maxlength="15" class="form-control" id="id_maret" value="{{form.maret.value}}">
+                        </div>
+                      </div>
+                      <div class="form-group ">
+                        <label for="id_april" class="control-label col-lg-2">April</label>
+                        <div class="col-lg-4">
+                          <input type="text" name="april" maxlength="15" class="form-control" id="id_april" value="{{form.april.value}}">
+                        </div>
+                      </div>
+                      <div class="form-group ">
+                        <label for="id_mei" class="control-label col-lg-2">Mei</label>
+                        <div class="col-lg-4">
+                          <input type="text" name="mei" maxlength="15" class="form-control" id="id_mei" value="{{form.mei.value}}">
+                        </div>
+                      </div>
+                      <div class="form-group ">
+                        <label for="id_juni" class="control-label col-lg-2">Juni</label>
+                        <div class="col-lg-4">
+                          <input type="text" name="juni" maxlength="15" class="form-control" id="id_juni" value="{{form.juni.value}}">
+                        </div>
+                      </div>
+                      <div class="form-group ">
+                        <label for="id_juli" class="control-label col-lg-2">Juli</label>
+                        <div class="col-lg-4">
+                          <input type="text" name="juli" maxlength="15" class="form-control" id="id_juli" value="{{form.juli.value}}">
+                        </div>
+                      </div>
+                      <div class="form-group ">
+                        <label for="id_agustus" class="control-label col-lg-2">Agustus</label>
+                        <div class="col-lg-4">
+                          <input type="text" name="agustus" maxlength="15" class="form-control" id="id_agustus" value="{{form.agustus.value}}">
+                        </div>
+                      </div>
+                      <div class="form-group ">
+                        <label for="id_september" class="control-label col-lg-2">September</label>
+                        <div class="col-lg-4">
+                          <input type="text" name="september" maxlength="15" class="form-control" id="id_september" value="{{form.september.value}}">
+                        </div>
+                      </div>
+                      <div class="form-group ">
+                        <label for="id_oktober" class="control-label col-lg-2">Oktober</label>
+                        <div class="col-lg-4">
+                          <input type="text" name="oktober" maxlength="15" class="form-control" id="id_oktober" value="{{form.oktober.value}}">
+                        </div>
+                      </div>
+                      <div class="form-group ">
+                        <label for="id_november" class="control-label col-lg-2">November</label>
+                        <div class="col-lg-4">
+                          <input type="text" name="november" maxlength="15" class="form-control" id="id_november" value="{{form.november.value}}">
+                        </div>
+                      </div>
+                      <div class="form-group ">
+                        <label for="id_desmber" class="control-label col-lg-2">Desember</label>
+                        <div class="col-lg-4">
+                          <input type="text" name="desember" maxlength="15" class="form-control" id="id_desmber" value="{{form.desember.value}}">
+                        </div>
+                      </div>
+
+
+                      <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-4">
+                          <input class="btn btn-primary" type="submit" value="Save">
+                          <a href="/" class="btn btn-default">Back</a>
+                        </div>
+                      </div>
+                    </form>
+                    {% else %}
+                    Heitsss Anda tidak Boleh hehehe
+                    {% endif %}
+                  </div>
+
+                </div>
+              </section>
+            </div>
+          </div>
+          <!-- page end-->
+        </section>
+      </section>
+      <!--main content end-->
+
+
+  {% endblock contents %}

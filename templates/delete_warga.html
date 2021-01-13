@@ -1,0 +1,59 @@
+  {% extends "base/base.html" %}
+
+  {% block contents %}
+      <!--main content start-->
+      <section id="main-content">
+        <section class="wrapper">
+          <div class="row">
+            <div class="col-lg-12">
+              <h3 class="page-header"><i class="fa fa-files-o"></i> Form Delete Warga</h3>
+              <ol class="breadcrumb">
+                <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+                <li><i class="icon_document_alt"></i>Forms</li>
+                <li><i class="fa fa-files-o"></i>Delete Warga</li>
+              </ol>
+            </div>
+          </div>
+          <!-- Form validations -->
+
+
+
+
+          <div class="row">
+            <div class="col-lg-12">
+              <section class="panel">
+                <header class="panel-heading">
+                  Form Delete Warga
+                </header>
+                <div class="panel-body">
+                  <div class="form">
+                    {% if user.is_authenticated %}
+                        <form class="form-validate form-horizontal" method="POST">
+                            {% csrf_token %}
+                            Hapus {{datawarga.nama}} ???<br><br>
+                            <button class="btn btn-primary" type="submit">Boleh</button>
+                          <a href="{% url 'index:list-data-warga' 1 %}" class="btn btn-default">Tidak Jadi</a>
+                    
+                          </form>
+                    {% else %}
+                      Heitsss Anda tidak Boleh hehehe
+                    {% endif %}
+                    
+                  </div>
+
+                </div>
+              </section>
+            </div>
+          </div>
+          <!-- page end-->
+        </section>
+      </section>
+      <!--main content end-->
+      <script>
+  $(function () {
+    $("#id_tgl_lahir").datepicker({
+      format:'dd/mm/yyyy',
+    });
+  });
+</script>
+  {% endblock contents %}

@@ -1,0 +1,24 @@
+{% load static %}
+
+
+{% block header %}
+          <!-- Bootstrap CSS -->
+  <link href=" {% static "css/bootstrap.min.css" %} " rel="stylesheet">
+  <!-- bootstrap theme -->
+  <link href="{% static "css/bootstrap-theme.css" %}" rel="stylesheet">
+  <!--external css-->
+  <!-- font icon -->
+  <link href="{% static "css/elegant-icons-style.css" %}" rel="stylesheet" />
+  <link href="{% static "assets/font-awesome/css/font-awesome.css" %}" rel="stylesheet" />
+  <!-- Custom styles -->
+  <link href="{% static "css/style.css" %}" rel="stylesheet">
+  <link href="{% static "css/style-responsive.css" %}" rel="stylesheet" />
+{% endblock header %}
+{% block contents %}
+    <div class="page-500">
+    <p class="text-500">500</p>
+
+    <h2>Aww Snap!</h2>
+    <p>Something went wrong or that page doesn’t exist yet. <br><a href=" {% url 'index' %} ">Return Home</a></p>
+  </div>
+{% endblock contents %}

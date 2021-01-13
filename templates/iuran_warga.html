@@ -1,0 +1,131 @@
+{% extends "base/base.html" %}
+
+{% block contents %}
+
+<!--main content start-->
+    <section id="main-content">
+      <section class="wrapper">
+        <div class="row">
+          <div class="col-lg-12">
+            <h3 class="page-header"><i class="fa fa-table"></i> Table</h3>
+            <ol class="breadcrumb">
+              <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+              <li><i class="fa fa-table"></i>Master Data</li>
+              <li><i class="fa fa-th-list"></i>Iuran Warga</li>
+            </ol>
+          </div>
+        </div>
+        <!-- page start-->
+        <div class="row">
+          <div class="col-lg-12">
+            <section class="panel">
+              <header class="panel-heading">
+                Tahun {{tahun}}
+              </header>
+              <div class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>No KK</th>
+                      <th>Kepala Keluarga</th>
+                      <th>Januari</th>
+                      <th>Februari</th>
+                      <th>Maret</th>
+                      <th>April</th>
+                      <th>Mei</th>
+                      <th>Juni</th>
+                      <th>Juli</th>
+                      <th>Agustus</th>
+                      <th>September</th>
+                      <th>Oktober</th>
+                      <th>November</th>
+                      <th>Desember</th>
+                      {% if user.is_authenticated %}
+                      <th>Aksi</th>
+                      {% endif %}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for iuran in object_list  %}
+                    <tr>
+                      <td>{{iuran.no_kk}}</td>
+                      <td>{{iuran.kepala_keluarga }}</td>
+                      <td>{{iuran.januari}}</td>
+                      <td>{{iuran.februari}}</td>
+                      <td>{{iuran.maret}}</td>
+                      <td>{{iuran.april}}</td>
+                      <td>{{iuran.mei}}</td>
+                      <td>{{iuran.juni}}</td>
+                      <td>{{iuran.juli}}</td>
+                      <td>{{iuran.agustus}}</td>
+                      <td>{{iuran.september}}</td>
+                      <td>{{iuran.oktober}}</td>
+                      <td>{{iuran.november}}</td>
+                      <td>{{iuran.desember}}</td>
+                      {% if user.is_authenticated %}
+                          <td>
+                            <a href="{% url 'index:update-iuran-warga' iuran.pk %}" class="fa fa-pencil-square-o" aria-hidden="true"></a>
+                            
+                            <a href="{% url 'index:delete-iuran-warga' iuran.pk %}" class="far fa-trash-alt"></a>
+                          </td>
+                      
+                      {% endif %}
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+
+
+                  {% if is_paginated %}
+
+                  <nav class="mx-auto" aria-label="...">
+                    <ul class="pagination">
+
+                      {% if page_obj.has_previous %}
+                        <li class="page-item">
+                          <a class="page-link" href="{% url 'index:list-data-warga' page_obj.previous_page_number  %}">Previous</a>
+                        </li>
+                      {% else %}
+                        <li class="page-item disabled">
+                          <span class="page-link" href="#">Previous</span>
+                        </li>
+                      {% endif %}
+
+                      {% for page in paginator.page_range %}
+                        {% if page is page_obj.number  %}
+                          <li class="page-item active" aria-current="page">
+                              <a class="page-link" href="{% url 'index:list-data-warga' page %}">{{page}}</a>
+                          </li>
+                        {% else %}
+                          <li class="page-item" aria-current="page">
+                              <a class="page-link" href="{% url 'index:list-data-warga' page %}">{{page}}</a>
+                          </li>
+                        {% endif %}
+                      {% endfor %}
+
+                      {% if page_obj.has_next %}
+                        <li class="page-item">
+                          <a class="page-link" href="{% url 'index:list-data-warga' page_obj.next_page_number  %}">Next</a>
+                        </li>
+                      {% else %}
+                        <li class="page-item disabled">
+                          <span class="page-link" href="#">Next</span>
+                        </li>
+                      {% endif %}
+
+                    </ul>
+                  </nav>
+                  {% endif %}
+
+              </div>
+
+            </section>
+          </div>
+        </div>
+        
+        <!-- page end-->
+      </section>
+    </section>
+    <!--main content end-->
+    
+{% endblock contents %}
