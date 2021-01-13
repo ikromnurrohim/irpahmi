@@ -62,7 +62,7 @@ function initializeJS() {
                 'margin-left': '-180px'
             });
             jQuery('#sidebar > ul').hide();
-            jQuery("#tooltips").addClass("sidebar-closed");
+            jQuery("#toggle-nav").addClass("sidebar-closed");
         } else {
             jQuery('#main-content').css({
                 'margin-left': '180px'
@@ -71,7 +71,7 @@ function initializeJS() {
             jQuery('#sidebar').css({
                 'margin-left': '0'
             });
-            jQuery("#tooltips").removeClass("sidebar-closed");
+            jQuery("#toggle-nav").removeClass("sidebar-closed");
         }
     });
 
