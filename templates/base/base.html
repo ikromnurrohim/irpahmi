@@ -61,17 +61,15 @@
       <a href="/" class="logo">IRPAHMI <span class="lite">Admin</span></a>
       <!--logo end-->
 
-      <div class="nav search-row" id="top_menu">
-        <!--  search form start -->
-        <ul class="nav top-menu">
+      <!-- <div class="nav search-row" id="top_menu">
+
           <li>
-            <form class="navbar-form" action="{% url 'index:search' %}">
+            <form class="d-flex" action="{% url 'index:search' %}">
               <input class="form-control" name="q" placeholder="Search" type="search">
             </form>
           </li>
-        </ul>
-        <!--  search form end -->
-      </div>
+        
+      </div> --> 
 
       <div class="top-nav notification-row">
         <!-- notificatoin dropdown start-->
@@ -98,6 +96,7 @@
           <li class="active">
             <form class="sidebar-form" action="{% url 'index:search' %}">
               <input class="form-control" name="q" placeholder="Search" type="search">
+              <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
             </form>
       
           </li>
