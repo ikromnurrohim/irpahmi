@@ -61,15 +61,7 @@
       <a href="/" class="logo">IRPAHMI <span class="lite">Admin</span></a>
       <!--logo end-->
 
-      <!-- <div class="nav search-row" id="top_menu">
-
-          <li>
-            <form class="d-flex" action="{% url 'index:search' %}">
-              <input class="form-control" name="q" placeholder="Search" type="search">
-            </form>
-          </li>
-        
-      </div> --> 
+      
 
       <div class="top-nav notification-row">
         <!-- notificatoin dropdown start-->
@@ -79,7 +71,7 @@
           {% if request.user.is_authenticated %}
           <button class="btn btn-outline-success me-2 mt-1"><a href="{% url 'logout' %}" class="text-decoration-none text-dark" >Logout</a></button>
               {% else %}
-          <button class="btn btn-outline-success me-2 mt-1"><a href="{% url 'login' %}" class="text-decoration-none text-dark" >Login</a></button>
+          <button class="btn btn-outline-success me-2 mt-1"><a href="{% url 'login' %}" class="text-decoration-none text-light" >Login</a></button>
           {% endif %}
           <!-- user login dropdown end -->
         </ul>
@@ -93,13 +85,6 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
-          <li class="active">
-            <form class="sidebar-form" action="{% url 'index:search' %}">
-              <input class="form-control" name="q" placeholder="Search" type="search">
-              <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
-            </form>
-      
-          </li>
           <li class="active">
             <a class="" href="/">
                           <i class="icon_house_alt"></i>
@@ -129,6 +114,12 @@
               <li><a class="" href="{% url 'index:list-data-warga' 1 %}">Data Warga</a></li>
               <li><a class="" href="{% url 'index:list-iuran-warga' 1 %}">Iuran Warga</a></li>
             </ul>
+          </li>
+
+          <li>
+            <form class="d-flex" action="{% url 'index:search' %}">
+              <input class="form-control" name="q" placeholder="Search" type="search">
+            </form>
           </li>
 
         </ul>
