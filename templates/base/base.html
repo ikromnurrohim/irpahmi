@@ -10,7 +10,7 @@
   <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal"> -->
   <link rel="shortcut icon" href="img/favicon.png">
 
-  <title>Creative - Bootstrap Admin Template</title>
+  <title>Irpahmi Admin</title>
   
 
   <!-- Bootstrap CSS -->
@@ -96,6 +96,12 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
           <li class="active">
+            <form class="sidebar-form" action="{% url 'index:search' %}">
+              <input class="form-control" name="q" placeholder="Search" type="search">
+            </form>
+      
+          </li>
+          <li class="active">
             <a class="" href="/">
                           <i class="icon_house_alt"></i>
                           <span>Dashboard</span>
@@ -125,7 +131,6 @@
               <li><a class="" href="{% url 'index:list-iuran-warga' 1 %}">Iuran Warga</a></li>
             </ul>
           </li>
-
 
         </ul>
         <!-- sidebar menu end-->
