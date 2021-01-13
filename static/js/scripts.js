@@ -61,16 +61,16 @@ function initializeJS() {
             jQuery('#sidebar').css({
                 'margin-left': '-180px'
             });
-            jQuery('#sidebar > ul').hide();
+            // jQuery('#sidebar > ul').hide();
             // jQuery("#container").addClass("sidebar-closed");
         } else {
             jQuery('#main-content').css({
                 'margin-left': '180px'
             });
             jQuery('#sidebar > ul').show();
-            jQuery('#sidebar').css({
-                'margin-left': '0'
-            });
+            // jQuery('#sidebar').css({
+            //     'margin-left': '0'
+            // });
             jQuery("#container").removeClass("sidebar-closed");
         }
     });
